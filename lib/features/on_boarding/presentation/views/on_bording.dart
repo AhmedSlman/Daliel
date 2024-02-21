@@ -16,11 +16,14 @@ class OnBoardingView extends StatelessWidget {
       child: Scaffold(
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
+          child: ListView(
+            physics: const BouncingScrollPhysics(),
             children: [
               const SkipButton(),
               OnBoardingBody(),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.01,
+              ),
               const Center(
                 child: Padding(
                   padding: EdgeInsets.only(bottom: 20),

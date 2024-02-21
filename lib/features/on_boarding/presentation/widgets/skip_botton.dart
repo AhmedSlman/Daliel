@@ -11,13 +11,16 @@ class SkipButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 30),
-      child: Text(
-        AppStrings.skip,
-        style: AppStyles.s16.copyWith(
-          fontWeight: FontWeight.bold,
-          color: AppColors.deepBrown,
+    return Align(
+      alignment: Alignment.centerRight,
+      child: Padding(
+        padding: const EdgeInsets.only(top: 30),
+        child: Text(
+          AppStrings.skip,
+          style: AppStyles.s16.copyWith(
+            fontWeight: FontWeight.bold,
+            color: AppColors.deepBrown,
+          ),
         ),
       ),
     );
