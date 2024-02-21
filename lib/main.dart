@@ -1,12 +1,13 @@
-import 'package:draya/core/routes/app_router.dart';
 import 'package:flutter/material.dart';
 
+import 'core/routes/app_router.dart';
+
 void main() {
-  runApp(const Daliel());
+  runApp(const Dalel());
 }
 
-class Daliel extends StatelessWidget {
-  const Daliel({super.key});
+class Dalel extends StatelessWidget {
+  const Dalel({super.key});
 
   @override
   Widget build(BuildContext context) {

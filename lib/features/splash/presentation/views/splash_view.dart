@@ -1,9 +1,8 @@
-import 'package:draya/core/utils/app_strings.dart';
-import 'package:draya/core/utils/app_styles.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 import '../../../../core/utils/app_functions.dart';
+import '../../../../core/utils/app_strings.dart';
+import '../../../../core/utils/app_styles.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
