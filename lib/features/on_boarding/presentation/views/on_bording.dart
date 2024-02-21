@@ -1,14 +1,20 @@
-import 'package:dalel/core/utils/app_colors.dart';
-import 'package:dalel/core/utils/app_styles.dart';
-import 'package:dalel/core/widgets/custom_botton.dart';
+import 'package:dalel/core/utils/app_functions.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../core/utils/app_strings.dart';
+import '../widgets/get_buttons.dart';
 import '../widgets/on_boarding_body.dart';
 import '../widgets/skip_botton.dart';
 
-class OnBoardingView extends StatelessWidget {
+class OnBoardingView extends StatefulWidget {
   const OnBoardingView({super.key});
+
+  @override
+  State<OnBoardingView> createState() => _OnBoardingViewState();
+}
+
+class _OnBoardingViewState extends State<OnBoardingView> {
+  final PageController _controller = PageController(initialPage: 0);
+  int currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -19,19 +25,23 @@ class OnBoardingView extends StatelessWidget {
           child: ListView(
             physics: const BouncingScrollPhysics(),
             children: [
-              const SkipButton(),
-              OnBoardingBody(),
+              SkipButton(
+                onTap: () {
+                  customReplacementNavigate(context, "/signUp");
+                },
+              ),
+              OnBoardingBody(
+                onPageChanged: (index) {
+                  setState(() {
+                    currentIndex = index;
+                  });
+                },
+                controller: _controller,
+              ),
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.01,
               ),
-              const Center(
-                child: Padding(
-                  padding: EdgeInsets.only(bottom: 20),
-                  child: CustomBotton(
-                    text: AppStrings.next,
-                  ),
-                ),
-              )
+              GetButtons(currentIndex: currentIndex, controller: _controller)
             ],
           ),
         ),
