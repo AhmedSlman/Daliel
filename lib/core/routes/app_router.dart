@@ -1,8 +1,8 @@
 import 'package:go_router/go_router.dart';
 
-import '../../features/auth/presentation/views/sign_in.dart';
-import '../../features/auth/presentation/views/sign_up.dart';
-import '../../features/on_boarding/presentation/views/on_bording.dart';
+import '../../features/auth/presentation/views/sign_in_view.dart';
+import '../../features/auth/presentation/views/sign_up_view.dart';
+import '../../features/on_boarding/presentation/views/on_bording_view.dart';
 import '../../features/splash/presentation/views/splash_view.dart';
 
 final GoRouter router = GoRouter(
