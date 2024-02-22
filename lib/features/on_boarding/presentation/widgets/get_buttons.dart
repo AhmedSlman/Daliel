@@ -1,3 +1,4 @@
+import 'package:dalel/features/on_boarding/presentation/functions/on_boarding.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/utils/app_functions.dart';
@@ -20,6 +21,7 @@ class GetButtons extends StatelessWidget {
           CustomBotton(
             text: AppStrings.createAccount,
             onPressed: () {
+              onBoardingVisited();
               customReplacementNavigate(context, "/signUp");
             },
           ),
@@ -28,6 +30,7 @@ class GetButtons extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
+              onBoardingVisited();
               customReplacementNavigate(context, "/signIn");
             },
             child: Text(
