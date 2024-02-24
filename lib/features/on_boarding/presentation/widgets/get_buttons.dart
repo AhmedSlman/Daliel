@@ -1,7 +1,7 @@
-import 'package:dalel/features/on_boarding/presentation/functions/on_boarding.dart';
+import 'package:dalel/core/functions/on_boarding.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../core/utils/app_functions.dart';
+import '../../../../core/functions/custom_navigate.dart';
 import '../../../../core/utils/app_strings.dart';
 import '../../../../core/utils/app_styles.dart';
 import '../../../../core/widgets/custom_botton.dart';

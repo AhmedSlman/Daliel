@@ -2,7 +2,7 @@ import 'package:dalel/core/data/cache/cache_helper.dart';
 import 'package:dalel/core/services/service_locator.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../core/utils/app_functions.dart';
+import '../../../../core/functions/custom_navigate.dart';
 import '../../../../core/utils/app_strings.dart';
 import '../../../../core/utils/app_styles.dart';
 
@@ -40,7 +40,7 @@ class _SplashViewState extends State<SplashView> {
 }
 
 void delayedNavigate(context, path) {
-  Future.delayed(const Duration(seconds: 2), () {
+  Future.delayed(const Duration(seconds: 5), () {
     customReplacementNavigate(context, path);
   });
 }
