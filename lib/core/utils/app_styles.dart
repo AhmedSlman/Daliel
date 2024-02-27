@@ -46,6 +46,12 @@ abstract class AppStyles {
     color: AppColors.black,
     fontFamily: "Poppins",
   );
+  static final s32 = TextStyle(
+    fontSize: 32,
+    fontWeight: FontWeight.w700,
+    color: AppColors.offWhite,
+    fontFamily: "Saira",
+  );
 
   static const s42 = TextStyle(
     fontSize: 42,

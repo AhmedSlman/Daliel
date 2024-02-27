@@ -1,4 +1,5 @@
 import 'package:dalel/core/functions/on_boarding.dart';
+import 'package:dalel/core/routes/app_router.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/functions/custom_navigate.dart';
@@ -22,7 +23,7 @@ class GetButtons extends StatelessWidget {
             text: AppStrings.createAccount,
             onPressed: () {
               onBoardingVisited();
-              customReplacementNavigate(context, "/signUp");
+              customReplacementNavigate(context, RouterNames.SignUpView);
             },
           ),
           const SizedBox(
@@ -31,7 +32,7 @@ class GetButtons extends StatelessWidget {
           GestureDetector(
             onTap: () {
               onBoardingVisited();
-              customReplacementNavigate(context, "/signIn");
+              customReplacementNavigate(context, RouterNames.SignInView);
             },
             child: Text(
               "Login Now",

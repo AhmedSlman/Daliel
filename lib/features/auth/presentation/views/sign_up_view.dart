@@ -1,4 +1,5 @@
 import 'package:dalel/core/functions/custom_navigate.dart';
+import 'package:dalel/core/routes/app_router.dart';
 import 'package:dalel/core/utils/app_strings.dart';
 import 'package:flutter/material.dart';
 
@@ -15,6 +16,7 @@ class SignUpView extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: CustomScrollView(
+          physics: const BouncingScrollPhysics(),
           slivers: [
             SliverToBoxAdapter(
                 child: SizedBox(
@@ -35,7 +37,7 @@ class SignUpView extends StatelessWidget {
                 text1: AppStrings.alreadyHaveAnAccount,
                 text2: AppStrings.signIn,
                 onTap: () {
-                  customNavigate(context, "/signIn");
+                  customNavigate(context, RouterNames.SignInView);
                 },
               ),
             ),

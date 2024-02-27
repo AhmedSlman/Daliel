@@ -1,5 +1,6 @@
 import 'package:dalel/core/services/service_locator.dart';
 import 'package:dalel/features/auth/presentation/auth_cubit/auth_cubit.dart';
+import 'package:dalel/features/home/prsentation/view/home_view.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
@@ -15,22 +16,33 @@ final GoRouter router = GoRouter(
       builder: (context, state) => const SplashView(),
     ),
     GoRoute(
-      path: "/onBoarding",
+      path: RouterNames.OnBoardingView,
       builder: (context, state) => const OnBoardingView(),
     ),
     GoRoute(
-      path: "/signUp",
+      path: RouterNames.SignUpView,
       builder: (context, state) => BlocProvider(
-        create: (context) => getIt<AuthCubit>(),
+        create: (context) => AuthCubit(),
         child: const SignUpView(),
       ),
     ),
     GoRoute(
-      path: "/signIn",
+      path: RouterNames.SignInView,
       builder: (context, state) => BlocProvider(
-        create: (context) => getIt<AuthCubit>(),
+        create: (context) => AuthCubit(),
         child: const SignInView(),
       ),
     ),
+    GoRoute(
+      path: RouterNames.HomeView,
+      builder: (context, state) => const HomeView(),
+    ),
   ],
 );
+
+class RouterNames {
+  static const OnBoardingView = "/onBoarding";
+  static const SignUpView = "/signUp";
+  static const SignInView = "/signIn";
+  static const HomeView = "/home";
+}

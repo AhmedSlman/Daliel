@@ -1,5 +1,6 @@
 import 'package:dalel/core/functions/custom_navigate.dart';
 import 'package:dalel/core/functions/on_boarding.dart';
+import 'package:dalel/core/routes/app_router.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/get_buttons.dart';
@@ -29,7 +30,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
               SkipButton(
                 onTap: () {
                   onBoardingVisited();
-                  customReplacementNavigate(context, "/signUp");
+                  customReplacementNavigate(context, RouterNames.SignUpView);
                 },
               ),
               OnBoardingBody(
