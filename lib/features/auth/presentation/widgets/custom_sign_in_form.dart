@@ -18,7 +18,7 @@ class CustomSignInForm extends StatelessWidget {
     return BlocConsumer<AuthCubit, AuthState>(listener: (context, state) {
       if (state is SignInSuccessState) {
         // FirebaseAuth.instance.currentUser!.emailVerified?
-        customReplacementNavigate(context, RouterNames.HomeView);
+        customReplacementNavigate(context, RouterNames.HomeNavBarWidget);
         // : showToast("Please Verfiy Your Email");
       } else if (state is SignInFailuerState) {
         showToast(state.errMessage);
@@ -57,14 +57,14 @@ class CustomSignInForm extends StatelessWidget {
               padding: EdgeInsets.only(top: 15),
               child: ForgetPassWordTextWidget(),
             ),
-            SizedBox(height: MediaQuery.of(context).size.height * 0.12),
+            SizedBox(height: MediaQuery.of(context).size.height * 0.1),
             state is SignInLoadingState
                 ? const CircularProgressIndicator()
                 : CustomBotton(
                     text: AppStrings.signIn,
-                    onPressed: () {
+                    onPressed: () async {
                       if (authCubit.signInFormKey.currentState!.validate()) {
-                        authCubit.sigInWithEmailAndPassword();
+                        await authCubit.sigInWithEmailAndPassword();
                       }
                     },
                   ),

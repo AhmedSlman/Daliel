@@ -17,12 +17,9 @@ class WelcomeBanner extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          Text(
+          const Text(
             AppStrings.appName,
-            style: AppStyles.s32,
-          ),
-          const SizedBox(
-            height: 18,
+            style: AppStyles.s42,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
