@@ -1,4 +1,5 @@
 import 'package:dalel/core/functions/custom_navigate.dart';
+import 'package:dalel/core/routes/app_router.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/utils/app_strings.dart';
@@ -11,14 +12,11 @@ class ForgetPassWordTextWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        customReplacementNavigate(context, "path");
+        customReplacementNavigate(context, RouterNames.ForgotPasswordView);
       },
       child: Align(
         alignment: Alignment.centerRight,
-        child: Text(
-          AppStrings.forgotPassword,
-          style: AppStyles.s12,
-        ),
+        child: Text(AppStrings.forgotPassword, style: AppStyles.s12),
       ),
     );
   }

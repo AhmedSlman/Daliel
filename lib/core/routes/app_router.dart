@@ -1,5 +1,6 @@
 import 'package:dalel/core/services/service_locator.dart';
 import 'package:dalel/features/auth/presentation/auth_cubit/auth_cubit.dart';
+import 'package:dalel/features/auth/presentation/views/forgot_password_view.dart';
 import 'package:dalel/features/home/prsentation/view/home_view.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -34,6 +35,13 @@ final GoRouter router = GoRouter(
       ),
     ),
     GoRoute(
+      path: RouterNames.ForgotPasswordView,
+      builder: (context, state) => BlocProvider(
+        create: (context) => AuthCubit(),
+        child: const ForgotPasswordView(),
+      ),
+    ),
+    GoRoute(
       path: RouterNames.HomeView,
       builder: (context, state) => const HomeView(),
     ),
@@ -45,4 +53,5 @@ class RouterNames {
   static const SignUpView = "/signUp";
   static const SignInView = "/signIn";
   static const HomeView = "/home";
+  static const ForgotPasswordView = "/forgotPassword";
 }

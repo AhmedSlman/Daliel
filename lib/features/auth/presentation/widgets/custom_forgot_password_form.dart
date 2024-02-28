@@ -10,24 +10,23 @@ import '../../../../core/widgets/custom_botton.dart';
 import 'custom_text_form_field.dart';
 import 'forget_password_text_widget.dart';
 
-class CustomSignInForm extends StatelessWidget {
-  const CustomSignInForm({super.key});
+class CustomForgotPasswordForm extends StatelessWidget {
+  const CustomForgotPasswordForm({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<AuthCubit, AuthState>(listener: (context, state) {
-      if (state is SignInSuccessState) {
-        // FirebaseAuth.instance.currentUser!.emailVerified?
-        customReplacementNavigate(context, RouterNames.HomeView);
-        // : showToast("Please Verfiy Your Email");
-      } else if (state is SignInFailuerState) {
+      if (state is ResetPasswordSuccessState) {
+        showToast("Check Your Email To Reset Your Password");
+        customReplacementNavigate(context, RouterNames.SignInView);
+      } else if (state is ResetPasswordFailuerState) {
         showToast(state.errMessage);
       }
     }, builder: (context, state) {
       AuthCubit authCubit = BlocProvider.of<AuthCubit>(context);
 
       return Form(
-        key: authCubit.signInFormKey,
+        key: authCubit.forgotPasswordFormKey,
         child: Column(
           children: [
             CustomTextField(
@@ -36,35 +35,15 @@ class CustomSignInForm extends StatelessWidget {
                 authCubit.emailAddress = emailAddress;
               },
             ),
-            CustomTextField(
-              suffixIcon: IconButton(
-                onPressed: () {
-                  authCubit.obscurePasswordText();
-                },
-                icon: Icon(
-                  authCubit.obscurePasswordTextValue == true
-                      ? Icons.visibility_outlined
-                      : Icons.visibility_off_outlined,
-                ),
-              ),
-              labelText: AppStrings.password,
-              obscureText: authCubit.obscurePasswordTextValue,
-              onChanged: (password) {
-                authCubit.password = password;
-              },
-            ),
-            const Padding(
-              padding: EdgeInsets.only(top: 15),
-              child: ForgetPassWordTextWidget(),
-            ),
             SizedBox(height: MediaQuery.of(context).size.height * 0.12),
             state is SignInLoadingState
                 ? const CircularProgressIndicator()
                 : CustomBotton(
-                    text: AppStrings.signIn,
+                    text: AppStrings.sendResetPasswordLink,
                     onPressed: () {
-                      if (authCubit.signInFormKey.currentState!.validate()) {
-                        authCubit.sigInWithEmailAndPassword();
+                      if (authCubit.forgotPasswordFormKey.currentState!
+                          .validate()) {
+                        authCubit.resetPasswordWithLink();
                       }
                     },
                   ),
