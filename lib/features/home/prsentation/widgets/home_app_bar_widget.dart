@@ -10,15 +10,18 @@ class CustomHomeViewAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        SvgPicture.asset(AppAssets.imagesMenu),
-        Text(
-          AppStrings.appName,
-          style: AppStyles.s64.copyWith(fontSize: 22),
-        )
-      ],
+    return Padding(
+      padding: const EdgeInsets.only(top: 16),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          SvgPicture.asset(AppAssets.imagesMenu),
+          Text(
+            AppStrings.appName,
+            style: AppStyles.s64.copyWith(fontSize: 22),
+          )
+        ],
+      ),
     );
   }
 }
